@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Weather</title>
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+  <main class="main">
+    <div class="container">
+      <div class="main__inner">
+        <div class="main__conteiner">
+          <form class="main__form" action="#" id="form">
+            <label class="sr-only">select city</label>
+            <input class="main__input" type="text" required placeholder="enter city">
+            <button class="main__search animation" type="submit">
+              <svg class="main__search-img">
+                <use xlink:href="images/search.svg#search"></use>
+              </svg>
+            </button>
+          </form>
+
+          <div class="main__box">
+            <div class="main__content">
+              <div class="main__box-info">
+                <div class="main__info main__main-info main__info--active" id="tab-1">
+                  <div class="box">
+                    <span class="main__temperature"><a class="temperature">15</a>°</span>
+                    <div class="main__case">
+                      <h3 class="main__city">Aktobe</h3>
+                      <button class="main__btn-heart" type="button">
+                        <svg class="main__heart">
+                          <use xlink:href="images/heart.svg#heart"></use>
+                        </svg>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="main__info main__short-info" id="tab-2">
+                  <h3 class="main__info-city main__city">Aktobe</h3>
+                  <ul class="main__info-list">
+                    <li class="main__info-item">Temperature: <a class="temperature_details">14</a>°</li>
+                    <li class="main__info-item">Feels like: <a class="feels">10</a>°</li>
+                    <li class="main__info-item">Weather: <a class="weather">Clouds</a></li>
+                    <li class="main__info-item">Sunrise: <a class="sunrise">03:21</a></li>
+                    <li class="main__info-item">Sunset: <a class="sunset">18:54</a></li>
+                  </ul>
+                </div>
+
+                <div class="main__info main__hourly-info" id="tab-3">
+                  <h3 class="main__info-city main__city main__info-city--tab-3">Aktobe</h3>
+                  <article class="card-weather">
+                    <div class="card-weather__top firstPeriod">
+                      <time class="card-weather__date firstPeriod_date">17 May</time>
+                      <time class="card-weather__time firstPeriod_time">12:00</time>
+                    </div>
+
+                    <div class="card-weather__bottom">
+                      <div class="card-weather__box">
+                        <span class="card-weather__temperature ">Temperature: <a class="firstPeriod_temperature"></a>°</span>
+                        <span class="card-weather__temperature">Feels like: <a class="firstPeriod_feels-like"></a>°</span>
+                      </div>
+
+                      <div class="card-weather__box firstPeriod_weather" style="background-image: url(&quot;http://openweathermap.org/img/w/04d.png&quot;);">Clouds</div>
+
+                      <div class="card-weather__box firstPeriod_weather" style="background-image:url(images/rain-1.jpg)">
+                        Rain
+                      </div>
+                     
+                    </div>
+                  </article>
+
+                  <article class="card-weather secondPeriod">
+                      <div class="card-weather__top secondPeriod">
+                        <time class="card-weather__date secondPeriod_date">17 May</time>
+                        <time class="card-weather__time secondPeriod_time">12:00</time>
+                      </div>
+                      
+                      <div class="card-weather__bottom">
+                        <div class="card-weather__box">
+                          <span class="card-weather__temperature ">Temperature: <a class="secondPeriod_temperature"></a>°</span>
+                          <span class="card-weather__temperature">Feels like: <a class="secondPeriod_feels-like"></a>°</span>
+                        </div>
+                      
+                        <div class="card-weather__box secondPeriod_weather" style="background-image:url(images/rain-1.jpg)">
+                          Rain
+                        </div>
+                       
+                      </div>
+                      </article>
+
+                  <article class="card-weather thirdPeriod">
+                    <div class="card-weather__top thirdPeriod">
+                      <time class="card-weather__date thirdPeriod_date">17 May</time>
+                      <time class="card-weather__time thirdPeriod_time">12:00</time>
+                    </div>
+                    
+                    <div class="card-weather__bottom">
+                      <div class="card-weather__box">
+                        <span class="card-weather__temperature ">Temperature: <a class="thirdPeriod_temperature"></a>°</span>
+                        <span class="card-weather__temperature">Feels like: <a class="thirdPeriod_feels-like"></a>°</span>
+                      </div>
+                    
+                      <div class="card-weather__box thirdPeriod_weather" style="background-image:url(images/rain-1.jpg)">
+                        Rain
+                      </div>
+                     
+                    </div>
+                  </article>
+
+                  <article class="card-weather fourthPeriod">
+                    <div class="card-weather__top fourthPeriod">
+                      <time class="card-weather__date fourthPeriod_date">17 May</time>
+                      <time class="card-weather__time fourthPeriod_time">12:00</time>
+                    </div>
+                    
+                    <div class="card-weather__bottom">
+                      <div class="card-weather__box">
+                        <span class="card-weather__temperature ">Temperature: <a class="fourthPeriod_temperature"></a>°</span>
+                        <span class="card-weather__temperature">Feels like: <a class="fourthPeriod_feels-like"></a>°</span>
+                      </div>
+                    
+                      <div class="card-weather__box fourthPeriod_weather" style="background-image:url(images/rain-1.jpg)">
+                        Rain
+                      </div>
+                     
+                    </div>
+                  </article>
+                </div>
+              </div>
+              <nav class="main__box-tabs">
+                <a class="main__tab animation tab-1" href="#tab-1">
+                  Now
+                </a>
+                <a class="main__tab animation tab-2" href="#tab-2">
+                  Details
+                </a>
+                <a class="main__tab animation tab-3" href="#tab-3">
+                  Forecast
+                </a>
+              </nav>
+            </div>
+
+            <div class="main__cites">
+              <h3 class="main__title">
+                Added Locations:
+              </h3>
+              <ul class="main__list">
+              <li>
+              </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</body>
+<script type="module" src="js/main.js"></script>
+
+</html>
