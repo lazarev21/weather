@@ -5,16 +5,12 @@ import {form,
         activeTab,
         addFavoriteCity,
         dataOutputOnScreen,
-        forecastByPeriod, 
     } from './view.js'
 
-export const SERVER = {
-    URL: 'http://api.openweathermap.org/data/2.5/forecast',
-    URL_ICONS: 'http://openweathermap.org/img/w/',
-    API_KEY: 'f660a2fb1e4bad108d6160b7f58c555f',
-}
+import {SERVER,
+        } from './consts.js'
 
-export let result = {}
+export let result = {};
 
 form.addEventListener('submit', sendCityFromInput)
 likeIcon.addEventListener('click', addFavoriteCity)
@@ -47,7 +43,7 @@ function sendCityFromInput (event) {
     cityNameFromInput = '';
 }
 
-function getDataFromAPI(cityName) {
+export function getDataFromAPI(cityName) {
     const url = `${SERVER.URL}?q=${cityName}&appid=${SERVER.API_KEY}&units=metric`;
     console.log(url)
 
@@ -106,7 +102,6 @@ function saveDataFromAPI (dataFromAPI) {
     }
     dataOutputOnScreen(result)
 }
-
 
 
 

@@ -1,11 +1,19 @@
-import { SERVER,
-         result,
-    } from "./main.js";
+import {SERVER,
+        favoriteCityList,
+        form,
+        likeIcon,
+        tabs,
+        errorDublicationCity,
     
+    } from './consts.js'
+
+import {result} from './main.js'
+
+import { saveCityNameOnStorage, updateFavoritelist } from './storage.js';
+
 export {form,
         likeIcon,
         tabs,
-        cityName,
         favoriteCityList,
         errorDublicationCity,
         activeTab,
@@ -14,12 +22,8 @@ export {form,
         forecastByPeriod,
     }
 
-const form = document.getElementById('form');
-const likeIcon = document.querySelector('.main__heart');
-const tabs = document.querySelector('.main__box-tabs');
-const cityName = document.querySelector('.main__city').innerText;
-const favoriteCityList = document.querySelector('.main__list');
-const errorDublicationCity= 'Город уже в избранном';
+
+
 
 function activeTab(numberOfTab) {
     if (numberOfTab === 'first') {
@@ -42,7 +46,8 @@ function activeTab(numberOfTab) {
 }   
 
 function addFavoriteCity () {
-    const li = document.createElement('li')
+    const li = document.createElement('li');
+    const cityName = document.querySelector('.main__city').innerText;
     try { 
         for (let elem of favoriteCityList.children) {
             if (elem.outerText === cityName) {
@@ -56,6 +61,7 @@ function addFavoriteCity () {
     catch(error) {
         alert(error.message)
     }
+    updateFavoritelist()
 }
 
 function dataOutputOnScreen (result) {
@@ -76,15 +82,21 @@ function dataOutputOnScreen (result) {
     forecastByPeriod('secondPeriod');
     forecastByPeriod('thirdPeriod');
     forecastByPeriod('fourthPeriod');
+
+    let cityName = document.querySelector('.main__city').innerText;
+    saveCityNameOnStorage(cityName)
+
 }
 
 function forecastByPeriod (period) {
 document.querySelector(`.${period}_date`).innerText = result.forecast[period].date;
 document.querySelector(`.${period}_time`).innerText = result.forecast[period].time;
-document.querySelector(`.${period}_temperature`).innerText = result.forecast[period].temp;
-document.querySelector(`.${period}_feels-likeIcon`).innerText = result.forecast[period].feels_like;
+document.querySelector(`.${period}_temperature`).innerText = Math.round(result.forecast[period].temp);
+document.querySelector(`.${period}_feels-like`).innerText =  Math.round(result.forecast[period].feels_like);
 document.querySelector(`.${period}_weather`).innerText = result.forecast[period].weather;
 document.querySelector(`.${period}_weather`).style[`background-image`] = (`url(${SERVER.URL_ICONS}${result.forecast[period].icon}.png)`);
 }
+
+
 
 
