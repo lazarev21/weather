@@ -1,15 +1,15 @@
-import { getDataFromAPI } from "./main.js";
-import { favoriteCityList } from "./consts.js"
+import {SERVER} from "../js/consts.js"
+import { getDataFromAPI } from "../js/main.js";
 
-export function updateFavoritelist () {
-    const storageOfFavoriteCity = favoriteCityList.innerHTML
-    localStorage.setItem('key', storageOfFavoriteCity);
+localStorage.setItem('cityFromStorage', SERVER.DEFAULT_CITY)
+
+export function updateFavoritelist (favoriteCityStorage) {
+    localStorage.setItem('key', favoriteCityStorage);
 }
 
 export function saveCityNameOnStorage(cityName) {
-
     localStorage.setItem('cityFromStorage', cityName)
 }
 
-favoriteCityList.innerHTML = localStorage.getItem('key');
+document.querySelector('.main__list').innerHTML = localStorage.getItem('key');
 getDataFromAPI(localStorage.getItem('cityFromStorage'));

@@ -1,16 +1,15 @@
-import {SERVER, 
-    likeIcon,
-    form, 
-    tabs,
-} from '../js/consts.js'
 
 import {activeTab,
         addFavoriteCity,
         dataOutputOnScreen,
-    } from '../js/view.js'
+    } from './view.js'
 
-import { compareAsc, format } from '../node_modules/data-fns'
-    
+import {SERVER, 
+        likeIcon,
+        form, 
+        tabs,
+    } from './consts.js'
+
 export let result = {};
 
 form.addEventListener('submit', sendCityFromInput)
@@ -26,7 +25,7 @@ document.querySelector('.main__list').addEventListener('click', function (event)
 
 tabs.addEventListener('click', function (event) {
     let target = event.target;
-    if (target.closest('.tab-1')){  
+    if (target.closest('.tab-1')){ 
         activeTab('first');
     }
     if (target.closest('.tab-2')){ 
@@ -124,4 +123,5 @@ function saveDataFromAPI (dataFromAPI) {
     }
     dataOutputOnScreen(result)
 }
+
 

@@ -1,29 +1,16 @@
 import {SERVER,
-        favoriteCityList,
-        form,
-        likeIcon,
-        tabs,
         errorDublicationCity,
     
-    } from './consts.js'
+    } from '../js/consts.js'
 
-import {result} from './main.js'
+import {result} from '../js/main.js'
 
 import { saveCityNameOnStorage, updateFavoritelist } from './storage.js';
 
-export {form,
-        likeIcon,
-        tabs,
-        favoriteCityList,
-        errorDublicationCity,
-        activeTab,
+export {activeTab,
         addFavoriteCity,
         dataOutputOnScreen,
-        forecastByPeriod,
-    }
-
-
-
+    }; 
 
 function activeTab(numberOfTab) {
     if (numberOfTab === 'first') {
@@ -46,6 +33,7 @@ function activeTab(numberOfTab) {
 }   
 
 function addFavoriteCity () {
+    let favoriteCityList = document.querySelector('.main__list')
     const li = document.createElement('li');
     const cityName = document.querySelector('.main__city').innerText;
     try { 
@@ -61,7 +49,8 @@ function addFavoriteCity () {
     catch(error) {
         alert(error.message)
     }
-    updateFavoritelist()
+    let favoriteCityStorage = favoriteCityList.innerHTML
+    updateFavoritelist(favoriteCityStorage)
 }
 
 function dataOutputOnScreen (result) {
