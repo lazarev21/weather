@@ -71,13 +71,6 @@ body {
   height: 100%;
 }
 
-.main__search:hover .main__search-img {
-  fill: #ffffff
-}
-
-.main__search:active.main__search-img {
-  fill: #ffffff
-}
 
 .main__search-img {
   fill: #000000;
